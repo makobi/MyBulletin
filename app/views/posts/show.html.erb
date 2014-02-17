@@ -1,0 +1,4 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.description %></p>
+<%= image_tag @post.photo.url(:small) %>
+<small><%= @post.created_at %></small>

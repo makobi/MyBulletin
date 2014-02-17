@@ -1,0 +1,38 @@
+<h1>Edit Post</h1>
+
+<%= form_for @post do |f|%>
+
+	<% if @post.errors.any? %>
+		<h2>Errors:</h2>
+		<ul>
+			<% @post.errors.full_messages.each do |message| %>
+				<li><%= message %> </li>
+			<% end %>
+		</ul>
+	<% end %>
+	
+	<p>
+		<%= f.label :title%><br>
+		<%= f.text_field :title %>
+	</p>	
+
+	<p>
+		<%= f.label :description%><br>
+		<%= f.text_area :description %>
+	</p>
+
+	<p>
+		<%= f.label :photo%><br>
+		<%= f.file_field :photo %>
+	</p>
+
+	<p>
+		<%= f.label :duedate%><br>
+		<%= f.text_field :duedate, :class => "form-control", :placeholder => "yyyy-mm-dd", :autofocus => true %>
+	</p>
+	
+	<p>
+		<%= f.submit "Update Post"%>
+	</p>
+
+<% end %>
