@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bulletin</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Bulletin" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Bulletin" %>">
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  	<div class="cover-container">
+	    <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"><%= link_to "Bulletin", root_path%></h3>
+              <ul class="nav masthead-nav">
+                <li><%= link_to "Home", root_path, :class => "active"%></li> 
+                <% if user_signed_in? %>
+					<li>Signed in as <%= current_user.email %>. Not you?</li>
+					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+				<% else %>
+					<li><%= link_to "Login", new_user_session_path %></li>
+				<% end %>
+              </ul>
+            </div>
+          </div>
+  	</div>
+    <!-- <header>
+      <%= render 'layouts/navigation' %>
+    </header> -->
+    <!-- <main role="main"> -->
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    <!-- </main> -->
 
-<div id="user_nav">
-	<% if user_signed_in? %>
-		Signed in as <%= current_user.email %>. Not you?
-		<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-	<% else %>
-		<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-	<% end %>
-</div>
-
-<% flash.each do |key, value| %>
-	<p> <%= value %> </p>
-<% end %>
-
-<%= yield %>
-
-</body>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  </body>
 </html>
+
+

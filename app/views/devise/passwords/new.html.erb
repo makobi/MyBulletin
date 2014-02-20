@@ -1,12 +1,25 @@
-<h2>Forgot your password?</h2>
+ <div class="site-wrapper">
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="site-wrapper-inner">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+        <div class="cover-container">
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+          <div class="inner cover">
 
-<%= render "devise/shared/links" %>
+			<h2>Forgot your password?</h2> 
+
+			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <div class="input-group">
+				<span class="input-group-addon">@</span>
+				<%= f.email_field :email, :autofocus => true, :class => "form-control", :placeholder => "Email" %>
+			  </div>
+
+			  <div style="margin-top:20px"><%= f.submit "Send", :class => "btn btn-lg btn-default" %></div>
+			<% end %>
+
+			</div>
+		</div>
+	</div>
+</div>
