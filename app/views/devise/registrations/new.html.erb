@@ -8,6 +8,8 @@
 
 			<h2>Sign up</h2>
 
+			 <% resource.build_profile %>
+
 			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
 
@@ -25,6 +27,18 @@
 			   <span class="input-group-addon">@</span>
 			   <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "Confirm Password" %>
 			  </div>
+
+			  <%= f.fields_for :profile do |profile_form| %>
+			  	<div class="input-group">
+				  <span class="input-group-addon">@</span>
+				  <%= profile_form.text_field :first_name, :class => "form-control", :placeholder => "First name" %>
+				 </div>
+
+				 <div class="input-group">
+				  <span class="input-group-addon">@</span>
+				  <%= profile_form.text_field :last_name, :class => "form-control", :placeholder => "Last name" %>
+				 </div>
+			    <% end %>
 
 			  <div style="margin-top:20px"><%= f.submit "Sign up", :class => "btn btn-lg btn-default" %>
 			  </div>

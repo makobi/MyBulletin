@@ -1,8 +1,12 @@
 Bulletin::Application.routes.draw do
   devise_for :users
-  resources :dashboard, :posts
+  resources :dashboard, :posts, :profiles
 
   root to: 'home#index'
+
+  #get "/profiles/:id" => "profiles#show", as => "profile"
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
