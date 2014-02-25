@@ -1,0 +1,10 @@
+<h2><%= @bulletin.title %></h2>
+<% @posts.each do |post| %>
+	<h2> <%= link_to post.title, post %> </h2>
+	<p><%= post.description %></p>
+	<%= image_tag post.photo.url(:small) %>
+	<% if post.user_id == current_user.id  %>
+		<p><%= link_to "Edit", edit_post_path(post) %> | <%= link_to "Delete", post, :confirm => "Are you sure?", :method => :delete %></p>
+	<% end %>
+	<hr />
+<% end %>
