@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   attr_accessible :description, :duedate, :title, :photo, :user_id
 
   belongs_to :user
+  belongs_to :my_bulletin
 
   has_attached_file :photo, :styles => { :small => "150x150>" },
                   :url  => "/assets/posts/:id/:style/:basename.:extension",

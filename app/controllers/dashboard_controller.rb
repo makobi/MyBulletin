@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
 
 	def index
 		@profile= current_user.profile
+		@bulletin = current_user.my_bulletin
 	end
 
 end

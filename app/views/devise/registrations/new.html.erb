@@ -9,6 +9,7 @@
 			<h2>Sign up</h2>
 
 			 <% resource.build_profile %>
+			 <% resource.build_my_bulletin %>
 
 			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 			  <%= devise_error_messages! %>
@@ -38,7 +39,14 @@
 				  <span class="input-group-addon">@</span>
 				  <%= profile_form.text_field :last_name, :class => "form-control", :placeholder => "Last name" %>
 				 </div>
-			    <% end %>
+			  <% end %>
+
+			  <%= f.fields_for :my_bulletin do |bulltin_form| %>
+			  	<div class="input-group">
+				  <span class="input-group-addon">@</span>
+				  <%= bulltin_form.text_field :title, :class => "form-control", :placeholder => "Title for your bulletin" %>
+				 </div>
+			  <% end %>
 
 			  <div style="margin-top:20px"><%= f.submit "Sign up", :class => "btn btn-lg btn-default" %>
 			  </div>

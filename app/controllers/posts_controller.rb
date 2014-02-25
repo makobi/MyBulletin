@@ -19,6 +19,8 @@ class PostsController < ApplicationController
 
 		@post.user_id = current_user.id
 
+		@post.my_bulletins_id = current_user.my_bulletin.id
+
 		if @post.save
 			render "show", :notice => "Your post was saved"
 		else

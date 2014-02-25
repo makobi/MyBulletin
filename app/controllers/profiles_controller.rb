@@ -27,4 +27,9 @@ class ProfilesController < ApplicationController
 			render "edit"
 		end
 	end
+
+	def destroy
+		@profile = Profile.find(params[:id])
+		@profile.destroy
+	end
 end
