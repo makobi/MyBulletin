@@ -1,2 +1,30 @@
 <h1><%= @profile.first_name %></h1>
 <h1><%= @profile.last_name %></h1>
+
+<h2>Friends</h2>
+<ul>
+  <% for friendship in User.find(Profile.find_by_id(params[:id]).user_id).friendships %>
+    <li>
+      <%=h friendship.friend.email%>
+      <%if current_user == User.find(Profile.find_by_id(params[:id]).user_id)%>
+        (<%= link_to "remove", friendship, :method => :delete %>)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+
+
+<h2>Friended by Users</h2>
+<ul>
+  <% for user in User.find(Profile.find_by_id(params[:id]).user_id).inverse_friends %>
+    <li><%=h user.email %></li>
+  <% end %>
+</ul>
+
+
+
+<%if current_user.profile.id != @profile.id and current_user.friendships.where(friend_id: Profile.find_by_id(params[:id]).user_id).blank?%>
+<%= link_to "Add Friend", friendships_path(:friend_id => Profile.find_by_id(params[:id]).user_id), :method => :post %>
+<% end %>
+

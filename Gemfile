@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'devise'
 
+gem "nifty-generators"
+
 gem "paperclip", "~> 3.0"
 
 # Gems used only for assets and not required
@@ -45,3 +47,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem "mocha", :group => :test

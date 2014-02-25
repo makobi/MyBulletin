@@ -63,8 +63,12 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.4)
     mime-types (1.25.1)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
     multi_json (1.8.4)
+    nifty-generators (0.4.6)
     orm_adapter (0.5.0)
     paperclip (3.5.4)
       activemodel (>= 3.0.0)
@@ -131,6 +135,8 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
+  mocha
+  nifty-generators
   paperclip (~> 3.0)
   rails (= 3.2.13)
   rails_layout

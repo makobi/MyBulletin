@@ -1,4 +1,6 @@
 Bulletin::Application.routes.draw do
+  resources :friendships
+
   devise_for :users
   resources :dashboard, :posts, :profiles
 
