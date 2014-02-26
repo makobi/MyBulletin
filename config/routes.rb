@@ -1,8 +1,7 @@
 Bulletin::Application.routes.draw do
-  get "my_bulletins/index"
 
   devise_for :users
-  resources :dashboard, :posts, :profiles, :friendships, :my_bulletins
+  resources :dashboard, :posts, :profiles, :friendships, :my_bulletins, :activities
 
   root to: 'home#index'
 

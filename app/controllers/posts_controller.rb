@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 		@post.my_bulletins_id = current_user.my_bulletin.id
 
 		if @post.save
+			@post.create_activity :create, owner: current_user
 			render "show", :notice => "Your post was saved"
 		else
 			render "new"

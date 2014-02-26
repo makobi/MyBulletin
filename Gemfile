@@ -11,6 +11,8 @@ gem 'devise'
 
 gem "nifty-generators"
 
+gem 'public_activity'
+
 gem "paperclip", "~> 3.0"
 
 # Gems used only for assets and not required

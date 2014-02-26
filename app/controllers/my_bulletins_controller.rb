@@ -2,7 +2,7 @@ class MyBulletinsController < ApplicationController
 
   	def show
 		@bulletin = MyBulletin.find(params[:id])
-		@posts = Post.where(:posts => { :user_id => current_user.id})
+		@posts = Post.where(:posts => { :user_id => @bulletin.user_id})
 	end
 
 	def create

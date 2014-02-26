@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
   attr_accessible :description, :duedate, :title, :photo, :user_id
 
+  include PublicActivity::Common
+
   belongs_to :user
   belongs_to :my_bulletin
 
